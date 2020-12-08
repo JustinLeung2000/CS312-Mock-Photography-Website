@@ -1,0 +1,34 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.navigationBar {
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+}
+
+.navigationBar a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 20px 100px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.navigationBar a:hover {
+    background-color: white;
+    color: black;
+}
+
+.navigationBar a.active {
+    background-color: white;
+    color: black;
+}
+
