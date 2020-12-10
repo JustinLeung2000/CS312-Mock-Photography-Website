@@ -43,7 +43,7 @@ if (!isset($_GET['confirmed'])):?>
             <p> Having moved to Glasgow recently, I have opened an exhibit for anyone to come visit my work in person. There you will see my work in higher quality and some works that I have not yet uploaded</p>
             <p style = "color:red"> NOTE: Due to Covid-19 protocol, only limited visitors are allowed and track and trace information will be needed for those who wish to visit</p>
         </div>
-        <input class="input-field" type="text" name="username" placeholder="Name" pattern = "[a-zA-Z\s]+" required value="<?php echo isset($_GET['username']) ? $_GET['username'] : null ?>" />
+        <input class="input-field" type="text" name="visitorname" placeholder="Name" pattern = "[a-zA-Z\s]+" required value="<?php echo isset($_GET['visitorname']) ? $_GET['visitorname'] : null ?>" />
         <input class="input-field" type="number" name="phone" placeholder="Phone number (11 Digits long)" required pattern=".{11}" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : null ?>" />
         <input class="input-field" type="text" name="address" placeholder="Postal Address" required value="<?php echo isset($_GET['address']) ? $_GET['address'] : null ?>" />
         <input class="input-field" type="datetime-local" name="date/time" placeholder="Date and Time" required value="<?php echo isset($_GET['date/time']) ? $_GET['date/time'] : null ?>" />
@@ -65,14 +65,14 @@ if (!isset($_GET['confirmed'])):?>
     </div>
 </form>
 <?php
-if (isset($_GET['username']) && isset($_GET['phone']) && isset($_GET['address']) && isset($_GET['date']))
+if (isset($_GET['visitorname']) && isset($_GET['phone']) && isset($_GET['address']) && isset($_GET['date/time']))
 
-$username = (string)$_GET['username'];
+$visitorname = (string)$_GET['visitorname'];
 $phone = (string)$_GET['phone'];
 $address = (string)$_GET['address'];
 $date = (string)date('Y-m-d H:i:s', strtotime($_GET['date/time']));
 
-$addBooking = "INSERT INTO `Visits` (`name`,`phone`,`address`,`date/time`) VALUES ('$username','$phone','$address','$date')";
+$addBooking = "INSERT INTO `Visits` (`name`,`phone`,`address`,`date/time`) VALUES ('$visitorname','$phone','$address','$date')";
 if (!mysqli_query($connection, $addBooking))
 {
 echo "Error: " . $addBooking . "<br>" . mysqli_error($connection);

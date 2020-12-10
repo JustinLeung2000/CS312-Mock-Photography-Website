@@ -48,7 +48,7 @@ while ($row = mysqli_fetch_array($photos))
         <h3>£<?php echo $price; ?></h3>
 
         <div class ="forminput">
-            <input class="input-field" type="text" name="username" placeholder="Name" pattern = "[a-zA-Z\s]+" required value="<?php echo isset($_GET['username']) ? $_GET['username'] : null ?>" />
+            <input class="input-field" type="text" name="buyername" placeholder="Name" pattern = "[a-zA-Z\s]+" required value="<?php echo isset($_GET['buyername']) ? $_GET['buyername'] : null ?>" />
             <input class="input-field" type="number" name="phone" placeholder="Phone number (11 Digits Long)" required pattern=".{11}" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : null ?>" />
             <input class="input-field" type="email" name="email" placeholder="Email" required value="<?php echo isset($_GET['email']) ? $_GET['email'] : null ?>" />
             <input class="input-field" type="text" name="address" placeholder="Postal Address" required value="<?php echo isset($_GET['address']) ? $_GET['address'] : null ?>" />
@@ -76,15 +76,15 @@ while ($row = mysqli_fetch_array($photos))
         </div>
     </form>
 <?php
-    if (isset($_GET['username']) && isset($_GET['email']) && isset($_GET['phone']) && isset($_GET['address']))
+    if (isset($_GET['buyername']) && isset($_GET['email']) && isset($_GET['phone']) && isset($_GET['address']))
 
-    $username = (string)$_GET['username'];
+    $buyername = (string)$_GET['buyername'];
     $email = (string)$_GET['email'];
     $phone = (string)$_GET['phone'];
     $address = (string)$_GET['address'];
 
     $addOrder = "INSERT INTO `Orders` (`name`,`email`,`phone`,`address`,`photo_id`,`photo_name`) 
-                   VALUES ('$username','$email','$phone','$address','$photoid','$photoName')";
+                   VALUES ('$buyername','$email','$phone','$address','$photoid','$photoName')";
     if (!mysqli_query($connection, $addOrder))
     {
         echo "Error: " . $addOrder . "<br>" . mysqli_error($connection);
