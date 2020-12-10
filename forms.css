@@ -1,0 +1,77 @@
+ h1, h2, h3 {
+    margin: 0 0 0px;
+    font-weight: 900;
+    color: black;
+    padding-bottom: 30px;
+
+}
+ .forminput input {
+     width: calc(20% - 18px);
+     padding: 8px 4px;
+     margin-bottom: 20px;
+     border: 1px solid slategray;
+     outline: none;
+     display: block;
+     position:center;
+     pointer-events: all;
+ }
+
+.visitText{
+    position: absolute;
+    top: 120px;
+    right: 550px;
+    width: 500px;
+    height: 100px;
+    padding-top:100px;
+    padding-left: 1000px;
+    font-weight: 900;
+    pointer-events: none;
+}
+
+form{
+    padding: 25px;
+    margin: 25px;
+    box-shadow: 0 2px 5px grey;
+    background: #f5f5f5;
+    opacity: 1;
+
+}
+.buttonone button {
+    width: 10%;
+    padding: 10px;
+    border: none;
+    background: green;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    pointer-events: all;
+}
+
+.buttontwo button {
+    margin-top: 15px;
+    width: 10%;
+    padding: 10px;
+    border: none;
+    background: red;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    pointer-events: all;
+}
+
+.submit button{
+    margin-top: 15px;
+    width: 15%;
+    padding: 10px;
+    border: none;
+    background: slategrey;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    pointer-events: all;
+}
+
+input::placeholder {
+    color: dimgrey;
+}
+

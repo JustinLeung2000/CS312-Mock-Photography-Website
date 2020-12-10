@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel = "stylesheet" type="text/css" href ="navbar.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "forms.css"/>
     <title>Cara's Photography</title>
 </head>
+
+<style> body { background-image: url("img/background2.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+</style>
 <body>
 <div class = "navigationBar">
     <ul>
@@ -26,23 +33,24 @@ $photosSql = "SELECT * FROM `Photos` LIMIT 12";
 $photos = $connection->query($photosSql);
 ?>
 
-<link rel = "stylesheet" type="text/css" href ="table.css"/>
+<form>
+
     <?php
     while ($row = mysqli_fetch_array($photos))
     {
-        $element =
-            '<a href="./details.php?id='.$row['id'].'"><div class="grid-element">
-                            <h2 class="title"> '.$row['name'].' </h2>
-                            <p> £'.$row['price'].' · '.$row['height'].'mm'.' x '.$row['width'].'mm </p>
-                        </div>
-                    </div></a>';
+         $detailsLink =
+                        '<a href="./details.php?id='.$row['id'].'">
+                         <p> '.$row['name'].' £'.$row['price'].' · '.$row['height'].'mm'.' x '.$row['width'].'mm </p>
+                         </a>';
 
-        echo $element;
+        echo $detailsLink;
     }
     ?>
-
-    <button style = "float: left;"> Previous Page</button> <?php $prevPhotos = "SELECT * FROM `Photos` LIMIT 12 OFFSET -12"; $photos = $connection -> query($prevPhotos);?>
-    <button style = "float: right;"> Next Page</button> <?php $nextPhotos = "SELECT * FROM `Photos` LIMIT 12 OFFSET 12"; $photos = $connection -> query($nextPhotos);?>
+</form>
+<div class = "submit">
+<button style = "float: left;"> Previous Page</button> <?php $prevPhotos = "SELECT * FROM `Photos` LIMIT 12 OFFSET -12"; $photos = $connection -> query($prevPhotos);?>
+<button style = "float: right;"> Next Page</button> <?php $nextPhotos = "SELECT * FROM `Photos` LIMIT 12 OFFSET 12"; $photos = $connection -> query($nextPhotos);?>
+</div>
 </form>
 </body>
 </html>

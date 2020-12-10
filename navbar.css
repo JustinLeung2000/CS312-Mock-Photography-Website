@@ -23,12 +23,12 @@ ul {
 }
 
 .navigationBar a:hover {
-    background-color: white;
-    color: black;
+    background-color: dimgrey;
+    color: white;
 }
 
 .navigationBar a.active {
-    background-color: white;
-    color: black;
+    background-color: dimgrey;
+    color: white;
 }
 

@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel = "stylesheet" type="text/css" href ="navbar.css"/>
+    <link rel = "stylesheet" type="text/css" href ="forms.css"/>
     <title>Cara's Photography</title>
 </head>
+
+<style> body { background-image: url("img/background2.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+</style>
+
 <body>
 <div class = "navigationBar">
     <ul>
@@ -27,23 +35,30 @@ $photos = $connection->query($photosSql);
 ?>
 
 <link rel = "stylesheet" type="text/css" href ="table.css"/>
+<form id = details action = ./details.php>
 <?php
 while ($row = mysqli_fetch_array($photos))
 {
-    $element =
+    $details =
         '
-                                <h1 class="header outline"> '.$row['name'].' </h1>
+                                <p>'.$row['name'].' </p>
                                 <p>Price: £'.$row['price'].' </p>
                                 <p>Size: '.$row['width'].'mm'.' x '.$row['height'].'mm </p>
-                                <p> Date it was completed: '.$row['CompletionDate'].' </p>
-                                <p> '.$row['description'].' </p>
-                                <a href="gallery.php"><button>Back</button></a>
+                                <p>Date it was completed: '.$row['CompletionDate'].' </p>
+                                <p>'.$row['description'].' </p>
+                                 </form>
+                                 <div class = "buttonone">
                                 <a href="order.php?id='.$row['id'].'"><button>Order</button></a>
+                                </div>
+                                 <div class = "buttontwo">
+                                <a href="gallery.php"><button>Back</button></a>
+                                </div>
+                                
         ';
 
-    echo $element;
+    echo $details;
 }?>
 
-</form>
+
 </body>
 </html>

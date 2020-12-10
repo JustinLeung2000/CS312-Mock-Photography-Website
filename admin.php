@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel = "stylesheet" type="text/css" href ="navbar.css"/>
+    <link rel = "stylesheet" type = "text/css" href = "forms.css"/>
+    <link rel = "stylesheet" type="text/css" href ="table.css"/>
     <title>Cara's Photography</title>
 </head>
+
+<style> body { background-image: url("img/lochbg.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+    }
+</style>
+
 <body>
 <div class = "navigationBar">
     <ul>
         <a href = "index.html">Home</a>
         <a href = "gallery.php">Gallery</a>
         <a href = "visit.php">Visit Us</a>
-        <a class = "active" href = "admin.php">Admin</a>
+        <a class = "active" href = "login.php">Admin</a>
     </ul>
 </div>
 
@@ -29,7 +38,8 @@ $visitsSql = "SELECT * FROM `Visits`";
 $visits = $connection->query($visitsSql)
 ?>
 
-<link rel = "stylesheet" type="text/css" href ="table.css"/>
+<form>
+    <h1> Orders: </h1>
 <?php if ((int)$orders->num_rows > 0): ?>
 <table>
     <thead>
@@ -61,9 +71,11 @@ $visits = $connection->query($visitsSql)
 <?php endif;
 
 if ((int)$orders->num_rows === 0): ?>
-<p> There are no pending orders</p>
+<h2> There are no pending orders</h2>
 <?php endif;?>
-
+</form>
+<form>
+    <h1> Appointments: </h1>
 <?php if ((int)$visits->num_rows > 0): ?>
     <table>
         <thead>
@@ -92,7 +104,13 @@ if ((int)$orders->num_rows === 0): ?>
 <?php endif;
 
 if ((int)$visits->num_rows === 0): ?>
-    <p> There are no appointments</p>
+    <h2> There are no appointments</h2>
 <?php endif;?>
+</form>
+<div class = "buttontwo">
+    <a href="login.php"><button>Log Out</button></a>
+</div>
+</form>
+
 </body>
 </html>
